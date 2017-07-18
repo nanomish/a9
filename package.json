@@ -1,0 +1,14 @@
+{
+  "name": "react_native_navigation_bootstrap",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "react-native start"
+  },
+  "dependencies": {
+    "react-native": "0.45.1",
+    "react": "16.0.0-alpha.12",
+    "react-native-navigation": "next",
+    "react-native-animatable": "^1.1.0"
+  }
+}
