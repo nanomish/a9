@@ -1,6 +1,7 @@
 # react-native-navigation-bootstrap
 
 ## Bootstrap for a vanilla `react-native-navigation` based project
+watchman watch-del-all && (adb reverse tcp:8081 tcp:8081 || true) && node node_modules/react-native/local-cli/cli.js start --reset-cache
 
 Clone this repository to start a project based on 
 
