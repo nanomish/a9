@@ -20,7 +20,9 @@ class Types extends React.Component {
       },
       {
         icon: require('../../img/three@2x.png'), // for icon button, provide the local image asset name
-        id: 'dismissModal' // id for this button, given in onNavigatorEvent(event) to help understand which button was clicked
+        id: 'dismissModal', // id for this button, given in onNavigatorEvent(event) to help understand which button was clicked
+        buttonColor: 'green',
+
       }
     ]
   };

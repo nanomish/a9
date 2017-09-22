@@ -1,3 +1,4 @@
+//@flow
 import {Platform} from 'react-native';
 import {Navigation} from 'react-native-navigation';
 import registerScreens from './screens';
@@ -5,16 +6,22 @@ import registerScreens from './screens';
 // screen related book keeping
 registerScreens();
 
-const tabs = [{
-  label: 'Navigation',
-  screen: 'example.Types',
-  icon: require('../img/list.png'),
-  title: 'Navigation Types',
-}, {
-  label: 'Actions',
-  screen: 'example.Actions',
-  icon: require('../img/swap.png'),
-  title: 'Navigation Actions',
+const tabs = [
+  {
+    label: 'My Lists',
+    screen: 'a9.MyLists',
+    icon: require('../img/list.png'),
+    title: 'My Lists',
+  },{
+    label: 'Lists',
+    screen: 'a9.Lists',
+    icon: require('../img/list.png'),
+    title: 'Lists',
+  }, {
+    label: 'Actions',
+    screen: 'example.Actions',
+    icon: require('../img/swap.png'),
+    title: 'Navigation Actions',
 }];
 
 if (Platform.OS === 'android') {
