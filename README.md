@@ -30,7 +30,8 @@ yarn
 ./scripts/android_licenses.sh
 ```
 
-
+## Before running:
+[read this first](https://wix.github.io/react-native-navigation/#/installation-ios)
 
 ### Running your project
 

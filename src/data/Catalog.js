@@ -21,19 +21,18 @@ export default class Catalog {
         return appData.getUpdateTime(CATALOG);
     }
 
+    /* will use : https://facebook.github.io/react-native/docs/network.html */
     getAllUserLists() {
         const username = UserData.getAppUsername();
-        return fetch('http://localhost:8000/lists/?username=' + username, {
+        return fetch('http://192.168.1.12:8000/lists/?username=' + username, {
             method: 'GET',
             headers: {
-                //'Accept': 'application/json',
-                'Content-Type': 'application/x-www-form-urlencoded'
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
             }
         })
             .then((res) => {
-                //console.log('Stored data: ', data)
-                console.log('Stored data, res ', res)
-                return res;
+                return res.json();
             })
             .catch((error) => {
                 console.log('Error: ', error)

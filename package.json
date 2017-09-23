@@ -6,9 +6,10 @@
 			"start": "watchman watch-del-all && (adb reverse tcp:8081 tcp:8081 || true) && node node_modules/react-native/local-cli/cli.js start --reset-cache"
   },
   "dependencies": {
-    "react-native": "0.45.1",
-    "react": "16.0.0-alpha.12",
-    "react-native-navigation": "next",
+    "react-native": "0.42.0",
+    "react": "15.4.2",
+    "prop-types": "^15.5.10",
+    "react-native-navigation": "1.1.228",
     "react-native-animatable": "^1.1.0"
   }
 }

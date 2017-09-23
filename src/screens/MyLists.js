@@ -99,7 +99,7 @@ class MyLists extends React.Component {
         console.log('componentWillMount - ');
         this.catalog.getAllUserLists()
             .then((lists) => {
-                console.log('lists AWS: ', lists)
+                console.log('all my lists: ', lists)
             })
     }
 

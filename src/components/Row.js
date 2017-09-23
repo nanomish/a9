@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+//import PropTypes from 'prop-types';
 import {StyleSheet, View, Text, TouchableHighlight, Platform} from 'react-native';
 
 function Row({title, onPress, platform, testID}) {
@@ -20,10 +20,12 @@ function Row({title, onPress, platform, testID}) {
   );
 }
 
+/*
 Row.propTypes = {
   title: PropTypes.string.isRequired,
   onPress: PropTypes.func.isRequired,
 };
+*/
 
 const styles = StyleSheet.create({
   row: {
