@@ -10,9 +10,9 @@ const tabs = [
   {
     label: 'My Lists',
     screen: 'a9.MyLists',
-    icon: require('../img/list.png'),
+    icon: require('../img/three@2x.png'),
     title: 'My Lists',
-  },{
+  }, {
     label: 'Lists',
     screen: 'a9.Lists',
     icon: require('../img/list.png'),

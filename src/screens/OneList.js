@@ -1,3 +1,6 @@
+/**
+ * Created by mkushnir on 23/09/2017.
+ */
 //https://wix.github.io/react-native-navigation/#/top-level-api?id=dismissmodalparams-
 import React from 'react';
 import {StyleSheet, View, Text, ScrollView, TouchableHighlight} from 'react-native';
@@ -6,14 +9,14 @@ import Catalog from '../data/Catalog';
 import _ from 'underscore';
 
 
-class MyLists extends React.Component {
+class OneList extends React.Component {
 
     constructor() {
         super();
         this.catalog = new Catalog();
         this.state = {
             isLoading: false,
-            lists: [],
+            items: [],
         };
     }
 
@@ -49,9 +52,8 @@ class MyLists extends React.Component {
     pushScreen = (list) => {
         console.log('pushScreen: ', list)
         this.props.navigator.push({
-            screen: 'a9.OneList',
+            screen: 'example.Types.Push',
             title: list.title,
-            passProps: {list: list},
         });
     };
 
@@ -69,34 +71,6 @@ class MyLists extends React.Component {
         });
     };
 
-    showModal = () => {
-        this.props.navigator.showModal({
-            screen: 'example.Types.Modal',
-            title: 'Modal',
-            animationType: 'slide-up',
-            navigatorButtons: navigatorButtons
-        });
-    };
-
-    showLightBox = () => {
-        this.props.navigator.showLightBox({
-            screen: "example.Types.LightBox",
-            passProps: {
-                title: 'LightBox',
-                content: 'Hey there, I\'m a light box screen :D',
-                onClose: this.dismissLightBox,
-            },
-            style: {
-                backgroundBlur: 'dark',
-                backgroundColor: 'rgba(0, 0, 0, 0.7)',
-            }
-        });
-    };
-
-    dismissLightBox = () => {
-        this.props.navigator.dismissLightBox();
-    };
-
     showInAppNotification = () => {
         this.props.navigator.showInAppNotification({
             screen: 'example.Types.Notification',
@@ -104,35 +78,15 @@ class MyLists extends React.Component {
     };
 
     componentWillMount() {
-        console.log('componentWillMount - ');
-        this.setState({isLoading: true})
-        this.catalog.getAllUserLists()
-            .then((lists) => {
-                console.log('all my lists: ', lists);
-                this.setState({
-                    isLoading: false,
-                    lists: lists
-                })
-            })
+        console.log('componentWillMount - OneList', this.props);
+
     }
 
     render() {
-        var lists = <Text>No lists found, create one now!</Text>;
-        if (this.state.lists.length) {
-            lists =
-                _.map(this.state.lists, list => {
-                    return <Row title={list.title}
-                                testID={list._id}
-                                key={list._id}
-                                onPress={this.pushScreen.bind(this, list)}/>
-                })
-        }
-        else if (this.state.isLoading) {
-            var lists = <Text>Loading ...</Text>
-        }
+        var items = <Text>No Items</Text>
         return (
             <ScrollView style={styles.container}>
-                {lists}
+                {items}
             </ScrollView>
         );
     }
@@ -156,4 +110,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default MyLists;
+export default OneList;

@@ -16,6 +16,7 @@ class Push extends React.Component {
   };
 
   render() {
+      console.log('Push, props: ', this.props)
     return (
       <View style={styles.container}>
         <Text>Pushed Screen</Text>
