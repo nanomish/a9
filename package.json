@@ -12,5 +12,8 @@
     "react-native-animatable": "^1.1.0",
     "react-native-navigation": "1.1.228",
     "underscore": "^1.8.3"
+  },
+  "devDependencies": {
+    "react-devtools": "^2.5.1"
   }
 }

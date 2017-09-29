@@ -1,7 +1,6 @@
 import {appData} from './AppData';
 import UserData from './userData';
 
-
 let CATALOG = 'catalog';
 
 export default class Catalog {

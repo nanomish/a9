@@ -1,26 +1,3 @@
-/*
-
-export class userData {
-    constructor() {
-        this.time = new Date();
-        this.user = {
-            username: 'misha'
-        }
-    }
-
-    getAppUser() {
-        return this.user;
-    }
-
-    getUpdateTime(key) {
-        return this[key] && this[key]._updateTime || this.time;
-    }
-
-}
-
-export let userData = new userData();
-
-*/
 
 var UserData = (function () {
     var instance;
@@ -29,7 +6,8 @@ var UserData = (function () {
         var object = new Object({
             time: new Date,
             user: {
-                username: 'misha'
+                username: 'misha',
+                userId: ''
             }
         });
         return object;
@@ -48,6 +26,9 @@ var UserData = (function () {
         },
         getAppUsername: function() {
             return this.getInstance().user.username;
+        },
+        getUserId: function() {
+            return this.getInstance().user.userId;
         }
     };
 })();

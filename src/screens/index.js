@@ -2,7 +2,10 @@ import {Navigation} from 'react-native-navigation';
 
 import Types from './Types';
 import MyLists from './MyLists';
+import LoginScreen from './LoginScreen';
+import LightBoxLogin from './LightBoxLogin';
 import OneList from './OneList';
+
 import Actions from './Actions';
 import Transitions from './Transitions';
 
@@ -27,7 +30,10 @@ import MasonryItem from './transitions/sharedElementTransitions/Masonry/Item';
 export default function () {
   Navigation.registerComponent('a9.MyLists', () => MyLists);
   Navigation.registerComponent('a9.OneList', () => OneList);
+  Navigation.registerComponent('a9.LoginScreen', () => LoginScreen);
   Navigation.registerComponent('a9.Lists', () => Types);
+  Navigation.registerComponent('a9.LightBox.Login', () => LightBoxLogin);
+
   Navigation.registerComponent('example.Actions', () => Actions);
   Navigation.registerComponent('example.Transitions', () => Transitions);
 

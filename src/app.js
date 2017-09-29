@@ -8,6 +8,11 @@ registerScreens();
 
 const tabs = [
   {
+    label: 'Login',
+    screen: 'a9.LoginScreen',
+    icon: require('../img/three@2x.png'),
+    title: 'Login',
+  }, {
     label: 'My Lists',
     screen: 'a9.MyLists',
     icon: require('../img/three@2x.png'),

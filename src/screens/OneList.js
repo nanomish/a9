@@ -54,6 +54,7 @@ class OneList extends React.Component {
         this.props.navigator.push({
             screen: 'example.Types.Push',
             title: list.title,
+            str: list.str
         });
     };
 
