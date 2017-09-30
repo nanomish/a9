@@ -7,7 +7,8 @@ var UserData = (function () {
             time: new Date,
             user: {
                 username: 'misha',
-                userId: ''
+                userId: '',
+                token: ''
             }
         });
         return object;
@@ -29,6 +30,12 @@ var UserData = (function () {
         },
         getUserId: function() {
             return this.getInstance().user.userId;
+        },
+        setToken: function(token) {
+            return this.getInstance().user.token = token;
+        },
+        getToken: function() {
+            return this.getInstance().user.token;
         }
     };
 })();

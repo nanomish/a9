@@ -1,8 +1,11 @@
 import React from 'react';
-import { AsyncStorage } from 'react-native';
-import {StyleSheet, View, Text, ScrollView, TouchableHighlight, Dimensions, TextInput, Button} from 'react-native';
+import LocalStorageAsync from '../data/LocalStorageAsync';
+import {StyleSheet, View, Text, ScrollView, Button, TouchableHighlight, Dimensions, TextInput} from 'react-native';
 import UserData from '../data/userData';
+import ServerData from '../data/serverData';
+import TimerMixin from 'react-timer-mixin';
 import _ from 'underscore';
+//import { Button } from 'react-native-elements';
 
 class LoginScreen extends React.Component {
 
@@ -10,10 +13,11 @@ class LoginScreen extends React.Component {
         super();
         this.state = {
             isLoggedIn: false,
+            title: 'WeDoZe',
             email: '',
             password: '',
-            token: '---',
-            x: 'xx',
+            token: '',
+            error: ''
         }
     }
 
@@ -25,97 +29,71 @@ class LoginScreen extends React.Component {
     }
 
     componentDidMount() {
-        this.toggleNavBar();
-        this.toggleTabs();
+        return this.checkIfUserLoggedIn()
+            .then(isAlreadyLoggedIn => {
+                if (isAlreadyLoggedIn === true) {
+                    this.props.navigator.switchToTab({
+                        tabIndex: 1,
+                    });
+                } else {
+                    this.hideBars();
+                }
+            })
         /* check if used is already logged in if yes:
          1) show tabs, show navbar
          2) goto lists screen
          3) change login to logout
          */
-        this.showLightBox()
     }
 
-    onClose = () => {
-
+    checkIfUserLoggedIn() {
+        /** The code below to use in very first stage
+         * for checking loggedIn state
+         * */
+        return LocalStorageAsync.get('jwt_token')
+         .then(token => fetch(ServerData.getServerUrl() + '/protected', {
+             headers: {
+                 Accept: 'application/json',
+                 'Content-Type': 'application/json',
+                 Authorization: `Bearer ${token}`
+             }
+         }))
+            .then(result => {
+                if (result.ok) {
+                    UserData.setToken(token);
+                    return true;
+                } else {
+                    return false;
+                }
+            })
     }
 
-    toggleTabs = () => {
-        const to = this._toggleTabs === 'shown' ? 'hidden' : 'shown';
-
-        this.props.navigator.toggleTabs({
-            to: 'hidden',
+    showBars() {
+        this.props.navigator.toggleNavBar({
+            to: 'shown',
             animated: true,
         });
-        this._toggleTabs = to;
-    };
+        this.props.navigator.toggleTabs({
+            to: 'shown',
+            animated: true,
+        });
+    }
 
-    toggleNavBar = () => {
-        const to = this._toggleNavBar === 'shown' ? 'hidden' : 'shown';
-
+    hideBars() {
         this.props.navigator.toggleNavBar({
             to: 'hidden',
             animated: true,
         });
-        this._toggleNavBar = to;
-    };
-
-    showLightBox = () => {
-        return;
-        this.props.navigator.showLightBox({
-            screen: "a9.LightBox.Login",
-            __DEV__: false,
-            passProps: {
-                title: 'Login',
-                content: 'Hey there, I\'m a light box screen :D',
-                onLogin: this.onClose,
-                onSignUp: this.onClose,
-            },
-            style: {
-                backgroundBlur: 'dark',
-                backgroundColor: 'rgba(0, 0, 0, 0.7)',
-            }
+        this.props.navigator.toggleTabs({
+            to: 'hidden',
+            animated: true,
         });
-    };
-
-    render() {
-        return (
-            <View style={styles.container}>
-                <View style={{flex: 8}}>
-                    <Text style={styles.title}>{this.props.title}</Text>
-
-                    <TextInput placeholder=" email" onChangeText={(email) => this.setState({email})}
-                               value={this.state.email} autoCapitalize="none" autoCorrect={false}
-                               style={{height: 40, marginTop: 10, borderColor: 'gray', borderWidth: 1}}/>
-                    <TextInput placeholder=" password" secureTextEntry={true}
-                               onChangeText={(password) => this.setState({password})}
-                               style={{height: 40, marginTop: 10, borderColor: 'gray', borderWidth: 1}}/>
-                </View>
-                <View>
-                    <Text >{this.state.token}</Text>
-                    <Text >{this.state.password}</Text>
-                    <Text >{this.state.email}</Text>
-                    <Text >{this.state.x}</Text>
-                </View>
-
-                <View>
-                    <Button
-                        title={'Login'}
-                        style={{backgroundColor: '#74HU67'}}
-                        onPress={() => this.onLogin()}
-                    />
-                    <Button
-                        title={'SignUp'}
-                        onPress={() => this.onSignUp()}
-                    />
-                </View>
-            </View>
-        )
     }
 
     onSignUp() {
         console.log('zzzzzzzzzzzzz')
         if (!this.state.password || !this.state.email) this.setState({token: 'aaa'});
-        return fetch('http://192.168.1.12:8000/register', {
+        return fetch(ServerData.getServerUrl() + '/register', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -126,7 +104,7 @@ class LoginScreen extends React.Component {
             }
         })
             .then((res) => {
-                this.setState({token: res.json().status})
+                this.setState({token: 'res.json().status'})
             })
             .catch((error) => {
                 this.setState({token: 'error'})
@@ -137,9 +115,16 @@ class LoginScreen extends React.Component {
     }
 
     onLogin() {
-        if (!this.state.password || !this.state.email) this.setState({token: 'aaa'});
-
-        return fetch('http://192.168.1.12:8000/login', {
+        if (!this.state.password || !this.state.email) {
+            this.setState({error: 'Please enter email and password'});
+            //this.setTimeout(() => this.setState({error: 'Please enter email and password'}), 1000)
+            return;
+        }
+        this.props.navigator.setSubTitle({
+            subtitle: "Connecting..."
+        });
+        this.setState({error: ''});
+        return fetch(ServerData.getServerUrl() + '/login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded',
@@ -152,27 +137,23 @@ class LoginScreen extends React.Component {
         })
             .then(response => response.json())
             .then((res) => {
-                console.log('res.json: ', res.token)
-                return AsyncStorage.setItem('jwt', res.token)
+                if (res.error) {
+                    throw Error (res.error)
+                } else {
+                    /** remove 'connecting...' from title
+                    this.props.navigator.setSubTitle({
+                    });
+                    /** storing token locally */
+                    LocalStorageAsync.set('jwt_token', res.token)
+                    return res.token;
+                }
             })
-            .then(() => {
-                alert(`Success! You may now access protected content.`)
-                // Redirect to home screen
-                this.props.navigator.pop()
-
-            })
-            .then(() => {
+            .then((token) => {
                 console.log('res, retrieving token')
-                return AsyncStorage.getItem('jwt')
-                    .then((result2) => {
-                        console.log('res, secret 2 res22: ', result2)
-                        return result2;
-                })
 
+                return token
             })
-
-            //.then((response) => response.json())
-            .then((token) => fetch('http://192.168.1.12:8000/protected', {
+            .then((token) => fetch(ServerData.getServerUrl() + '/protected', {
                         headers: {
                             Accept: 'application/json',
                             'Content-Type': 'application/json',
@@ -180,38 +161,101 @@ class LoginScreen extends React.Component {
                         }
                     })
             )
-            .then((json) => json.json())
+            .then((response) => response.json())
             .then(json => {
-                console.log('res, secret: ', json)
+
+                console.log('res, secret: ', json.secret)
                 this.setState({
-                    token: json
-                })
+                    token: json.secret
+                });
+                this.showBars();
+                /*this.props.navigator.showInAppNotification({
+                    screen: 'example.Types.Notification',
+                });*/
+                this.props.navigator.switchToTab({
+                    tabIndex: 1,
+                });
+                /*this.props.navigator.push({
+                    screen: 'example.Actions',
+                    passProps: {list: {title: 'from login', str: 'str'}},
+                });*/
+
             })
             .catch((error) => {
-                this.setState({token: 'error'})
-                console.log('Error: ', error)
+                this.setState({error: 'Invalid credentials!'})
+                console.log('Error caught: ', error)
                 return error;
             });
 
     }
 
+    render() {
+        return (
+            <View style={styles.container}>
+                <View style={{flex: 8}}>
+
+                    <Text style={styles.title}>WeDoZe</Text>
+
+                    <TextInput placeholder=" email" onChangeText={(email) => this.setState({email})}
+                               value={this.state.email} autoCapitalize="none" autoCorrect={false}
+                               style={{height: 40, marginTop: 20, borderColor: 'gray', borderWidth: 1, width: '90%'}}/>
+                    <TextInput placeholder=" password" secureTextEntry={true}
+                               onChangeText={(password) => this.setState({password})}
+                               style={{height: 40, marginTop: 15, borderColor: 'gray', borderWidth: 1, width: '90%'}}/>
+                    <Text style={styles.error}>{this.state.error}</Text>
+                </View>
+                <View style={styles.buttonsContainer}>
+                    <Button
+                        title={'Login'}
+                        style={styles.button}
+                        onPress={() => this.onLogin()}
+                    />
+                    <Button
+                        title={'SignUp'}
+                        style={styles.button}
+                        onPress={() => this.onSignUp()}
+                    />
+                </View>
+            </View>
+        )
+    }
+
 }
 
 const styles = StyleSheet.create({
+    buttonsContainer: {
+       flexDirection: 'row',
+    },
+    button: {
+        backgroundColor: 'red',
+        color: 'green',
+        borderRadius: 10
+    },
     container: {
-        width: Dimensions.get('window').width * 0.7,
-        height: Dimensions.get('window').height * 0.5,
         backgroundColor: '#ffffff',
-        borderRadius: 5,
+        borderRadius: 10,
+        height: Dimensions.get('window').height * 0.5,
+        marginTop: 20,
         padding: 16,
+        //width: Dimensions.get('window').width * 0.9,
+        flexDirection:'column',
+        alignItems:'center',
+        justifyContent:'center'
     },
     title: {
         fontSize: 17,
         fontWeight: '700',
+        marginLeft: 30
     },
     content: {
         marginTop: 8,
     },
+    error: {
+        color: 'red',
+        marginLeft: 7,
+        marginTop: 11,
+        fontSize: 14,
+    }
 });
 
 export default LoginScreen;
