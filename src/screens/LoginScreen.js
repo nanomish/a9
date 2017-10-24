@@ -3,6 +3,7 @@ import LocalStorageAsync from '../data/LocalStorageAsync';
 import {StyleSheet, View, Text, ScrollView, Button, TouchableHighlight, Dimensions, TextInput} from 'react-native';
 import UserData from '../data/userData';
 import ServerData from '../data/serverData';
+import ApiData from '../data/apiData';
 import TimerMixin from 'react-timer-mixin';
 import _ from 'underscore';
 //import { Button } from 'react-native-elements';
@@ -31,7 +32,7 @@ class LoginScreen extends React.Component {
     componentDidMount() {
         return this.checkIfUserLoggedIn()
             .then(isAlreadyLoggedIn => {
-                if (isAlreadyLoggedIn === true) {
+                if (isAlreadyLoggedIn) {
                     this.props.navigator.switchToTab({
                         tabIndex: 1,
                     });
@@ -50,22 +51,26 @@ class LoginScreen extends React.Component {
         /** The code below to use in very first stage
          * for checking loggedIn state
          * */
+        var jwt_token;
         return LocalStorageAsync.get('jwt_token')
-         .then(token => fetch(ServerData.getServerUrl() + '/protected', {
-             headers: {
-                 Accept: 'application/json',
-                 'Content-Type': 'application/json',
-                 Authorization: `Bearer ${token}`
-             }
-         }))
-            .then(result => {
-                if (result.ok) {
-                    UserData.setToken(token);
-                    return true;
-                } else {
-                    return false;
-                }
-            })
+         .then(token => {
+             jwt_token = token
+             return fetch(ServerData.getServerUrl() + '/protected', {
+                 headers: {
+                     'Accept': 'application/json',
+                     'Content-Type': 'application/json',
+                     'Authorization': `Bearer ${token}`
+                 }
+             })
+         })
+        .then(result => {
+            if (result.ok) {
+                UserData.setToken(jwt_token);
+                return true;
+            } else {
+                return false;
+            }
+        })
     }
 
     showBars() {
@@ -91,7 +96,6 @@ class LoginScreen extends React.Component {
     }
 
     onSignUp() {
-        console.log('zzzzzzzzzzzzz')
         if (!this.state.password || !this.state.email) this.setState({token: 'aaa'});
         return fetch(ServerData.getServerUrl() + '/register', {
             method: 'POST',
@@ -124,17 +128,12 @@ class LoginScreen extends React.Component {
             subtitle: "Connecting..."
         });
         this.setState({error: ''});
-        return fetch(ServerData.getServerUrl() + '/login', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded',
-                'Accept': 'application/json'
-            },
-            body: JSON.stringify({
-                username: this.state.email,
-                password: this.state.password
-            })
-        })
+
+        var body = {
+            username: this.state.email,
+            password: this.state.password
+        };
+        return ApiData.postRequest('login', body)
             .then(response => response.json())
             .then((res) => {
                 if (res.error) {
@@ -148,19 +147,7 @@ class LoginScreen extends React.Component {
                     return res.token;
                 }
             })
-            .then((token) => {
-                console.log('res, retrieving token')
-
-                return token
-            })
-            .then((token) => fetch(ServerData.getServerUrl() + '/protected', {
-                        headers: {
-                            Accept: 'application/json',
-                            'Content-Type': 'application/json',
-                            Authorization: `Bearer ${token}`
-                        }
-                    })
-            )
+            .then((token) => ApiData.runGetRequest('protected'))
             .then((response) => response.json())
             .then(json => {
 
