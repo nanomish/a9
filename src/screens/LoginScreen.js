@@ -5,6 +5,7 @@ import UserData from '../data/userData';
 import ServerData from '../data/serverData';
 import TimerMixin from 'react-timer-mixin';
 import _ from 'underscore';
+import LoginFaceBookScreen from "./LoginFaceBookScreen";
 //import { Button } from 'react-native-elements';
 
 class LoginScreen extends React.Component {
@@ -195,6 +196,7 @@ class LoginScreen extends React.Component {
                 <View style={{flex: 8}}>
 
                     <Text style={styles.title}>WeDoZe</Text>
+                    <LoginFaceBookScreen/>
 
                     <TextInput placeholder=" email" onChangeText={(email) => this.setState({email})}
                                value={this.state.email} autoCapitalize="none" autoCorrect={false}
