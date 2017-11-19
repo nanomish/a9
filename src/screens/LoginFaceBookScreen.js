@@ -11,9 +11,9 @@ import {View} from 'react-native';
 export default class LoginFacebookScreen extends React.Component {
     render() {
         return (
-            <View>
+
                 <LoginButton
-                    publishPermissions={["publish_actions"]}
+                    publishPermissions={["user_friends"]}
                     onLoginFinished={
                         (error, result) => {
                             if (error) {
@@ -26,7 +26,6 @@ export default class LoginFacebookScreen extends React.Component {
                         }
                     }
                     onLogoutFinished={() => alert("User logged out")}/>
-            </View>
         );
     }
 }

@@ -1,6 +1,9 @@
 # ios
 ios/Pods/
 
+# android
+android/
+
 # OSX
 #
 .DS_Store

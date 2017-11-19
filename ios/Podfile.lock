@@ -1,4 +1,5 @@
 PODS:
+  - AccountKit (4.26.0)
   - Bolts (1.8.4):
     - Bolts/AppLinks (= 1.8.4)
     - Bolts/Tasks (= 1.8.4)
@@ -56,6 +57,7 @@ PODS:
   - Yoga (0.42.0.React)
 
 DEPENDENCIES:
+  - AccountKit
   - react-native-fbsdk (from `../node_modules/react-native-fbsdk/ios`)
   - react-native-fbsdkcore (from `../node_modules/react-native-fbsdkcore`)
   - react-native-fbsdklogin (from `../node_modules/react-native-fbsdklogin`)
@@ -82,6 +84,7 @@ EXTERNAL SOURCES:
     :path: ../node_modules/react-native/ReactCommon/yoga
 
 SPEC CHECKSUMS:
+  AccountKit: c72905fc94ca89cef133e5eab7f6950ba9736ae7
   Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
   FBSDKCoreKit: ca961e279113f691fd83dc634c0bbad9d4e3f370
   FBSDKLoginKit: b077381c27d800f21661757e8140cf2c80a91e4a
@@ -93,6 +96,6 @@ SPEC CHECKSUMS:
   react-native-fbsdkshare: 6f4fe6174e0225ff81132d5d64345646338ac6da
   Yoga: 4183cc70cae189d73f996b1e40c3078aca9f96ef
 
-PODFILE CHECKSUM: 7c0c3182725a3bc22bb94ac812258be04bf150c8
+PODFILE CHECKSUM: 02bf886fb1efc9a13917b851634162fa35989b06
 
 COCOAPODS: 1.3.1

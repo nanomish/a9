@@ -196,7 +196,6 @@ class LoginScreen extends React.Component {
                 <View style={{flex: 8}}>
 
                     <Text style={styles.title}>WeDoZe</Text>
-                    <LoginFacebookScreen/>
 
                     <TextInput placeholder=" email" onChangeText={(email) => this.setState({email})}
                                value={this.state.email} autoCapitalize="none" autoCorrect={false}
@@ -217,6 +216,9 @@ class LoginScreen extends React.Component {
                         style={styles.button}
                         onPress={() => this.onSignUp()}
                     />
+                </View>
+                <View style={styles.login}>
+                    <LoginFacebookScreen/>
                 </View>
             </View>
         )
@@ -257,6 +259,10 @@ const styles = StyleSheet.create({
         marginLeft: 7,
         marginTop: 11,
         fontSize: 14,
+    },
+    login: {
+        marginTop: 10,
+        marginBottom: 10
     }
 });
 

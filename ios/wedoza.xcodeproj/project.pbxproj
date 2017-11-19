@@ -35,8 +35,13 @@
 		2D02E4C91E0B4AEC006451C7 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DAD3EA31DF850E9000B6D8A /* libReact.a */; };
 		2DCD954D1E0B4F2C00145EB5 /* wedozaTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* wedozaTests.m */; };
 		5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */; };
+		68AB18766CD0477B9977C7FB /* libRCTFBSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E433EB750245443CBDD6EA74 /* libRCTFBSDK.a */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		B4B36A97725BC04E2F6AF0B5 /* libPods-wedoza.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00CEFF0A9FFCA838721FFB09 /* libPods-wedoza.a */; };
+		F4A7B5071FC21EB00068B806 /* libreact-native-fbsdk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F4A7B5061FC21EB00068B806 /* libreact-native-fbsdk.a */; };
+		F4A7B5101FC2203D0068B806 /* libFBSDKCoreKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F4A7B50A1FC2203D0068B806 /* libFBSDKCoreKit.a */; };
+		F4A7B5111FC2203D0068B806 /* libFBSDKLoginKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F4A7B50B1FC2203D0068B806 /* libFBSDKLoginKit.a */; };
+		F4A7B5121FC2203D0068B806 /* libFBSDKShareKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F4A7B50C1FC2203D0068B806 /* libFBSDKShareKit.a */; };
 		F4AC0ABA1FA94DBF000755D3 /* libReactNativeNavigation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F4AC0AB91FA94D95000755D3 /* libReactNativeNavigation.a */; };
 /* End PBXBuildFile section */
 
@@ -230,6 +235,13 @@
 			remoteGlobalIDString = 58B5119B1A9E6C1200147676;
 			remoteInfo = RCTText;
 		};
+		F4A7B5341FC221CD0068B806 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8F02D1F35AF24F05AD8B1213 /* RCTFBSDK.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 9350E0F11CE3B0920041D815;
+			remoteInfo = RCTFBSDK;
+		};
 		F4AC0AB81FA94D95000755D3 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = F4AC0AB41FA94D95000755D3 /* ReactNativeNavigation.xcodeproj */;
@@ -265,8 +277,17 @@
 		5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAnimation.xcodeproj; path = "../node_modules/react-native/Libraries/NativeAnimation/RCTAnimation.xcodeproj"; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
+		8F02D1F35AF24F05AD8B1213 /* RCTFBSDK.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RCTFBSDK.xcodeproj; path = "../node_modules/react-native-fbsdk/ios/RCTFBSDK.xcodeproj"; sourceTree = "<group>"; };
 		AB2ACF870F0C5497F56C71C9 /* Pods-wedoza.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wedoza.release.xcconfig"; path = "Pods/Target Support Files/Pods-wedoza/Pods-wedoza.release.xcconfig"; sourceTree = "<group>"; };
 		B4907BC7EE9C4225FA00CE01 /* Pods-wedoza.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wedoza.debug.xcconfig"; path = "Pods/Target Support Files/Pods-wedoza/Pods-wedoza.debug.xcconfig"; sourceTree = "<group>"; };
+		E433EB750245443CBDD6EA74 /* libRCTFBSDK.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRCTFBSDK.a; sourceTree = "<group>"; };
+		F4A7B5061FC21EB00068B806 /* libreact-native-fbsdk.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libreact-native-fbsdk.a"; path = "Pods/../build/Debug-iphoneos/react-native-fbsdk/libreact-native-fbsdk.a"; sourceTree = "<group>"; };
+		F4A7B50A1FC2203D0068B806 /* libFBSDKCoreKit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libFBSDKCoreKit.a; path = "Pods/../build/Debug-iphoneos/FBSDKCoreKit/libFBSDKCoreKit.a"; sourceTree = "<group>"; };
+		F4A7B50B1FC2203D0068B806 /* libFBSDKLoginKit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libFBSDKLoginKit.a; path = "Pods/../build/Debug-iphoneos/FBSDKLoginKit/libFBSDKLoginKit.a"; sourceTree = "<group>"; };
+		F4A7B50C1FC2203D0068B806 /* libFBSDKShareKit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libFBSDKShareKit.a; path = "Pods/../build/Debug-iphoneos/FBSDKShareKit/libFBSDKShareKit.a"; sourceTree = "<group>"; };
+		F4A7B50D1FC2203D0068B806 /* libreact-native-fbsdkcore.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libreact-native-fbsdkcore.a"; path = "Pods/../build/Debug-iphoneos/react-native-fbsdkcore/libreact-native-fbsdkcore.a"; sourceTree = "<group>"; };
+		F4A7B50E1FC2203D0068B806 /* libreact-native-fbsdklogin.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libreact-native-fbsdklogin.a"; path = "Pods/../build/Debug-iphoneos/react-native-fbsdklogin/libreact-native-fbsdklogin.a"; sourceTree = "<group>"; };
+		F4A7B50F1FC2203D0068B806 /* libreact-native-fbsdkshare.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libreact-native-fbsdkshare.a"; path = "Pods/../build/Debug-iphoneos/react-native-fbsdkshare/libreact-native-fbsdkshare.a"; sourceTree = "<group>"; };
 		F4AC0AB41FA94D95000755D3 /* ReactNativeNavigation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ReactNativeNavigation.xcodeproj; path = "../node_modules/react-native-navigation/ios/ReactNativeNavigation.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -283,6 +304,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F4A7B5101FC2203D0068B806 /* libFBSDKCoreKit.a in Frameworks */,
+				F4A7B5111FC2203D0068B806 /* libFBSDKLoginKit.a in Frameworks */,
+				F4A7B5121FC2203D0068B806 /* libFBSDKShareKit.a in Frameworks */,
+				F4A7B5071FC21EB00068B806 /* libreact-native-fbsdk.a in Frameworks */,
 				F4AC0ABA1FA94DBF000755D3 /* libReactNativeNavigation.a in Frameworks */,
 				146834051AC3E58100842450 /* libReact.a in Frameworks */,
 				5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */,
@@ -296,6 +321,7 @@
 				00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */,
 				139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */,
 				B4B36A97725BC04E2F6AF0B5 /* libPods-wedoza.a in Frameworks */,
+				68AB18766CD0477B9977C7FB /* libRCTFBSDK.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -472,6 +498,7 @@
 				832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */,
 				00C302DF1ABCB9EE00DB3ED1 /* RCTVibration.xcodeproj */,
 				139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */,
+				8F02D1F35AF24F05AD8B1213 /* RCTFBSDK.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -513,9 +540,24 @@
 		E7A06CB267D9A25F90087E4D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F4A7B50A1FC2203D0068B806 /* libFBSDKCoreKit.a */,
+				F4A7B50B1FC2203D0068B806 /* libFBSDKLoginKit.a */,
+				F4A7B50C1FC2203D0068B806 /* libFBSDKShareKit.a */,
+				F4A7B50D1FC2203D0068B806 /* libreact-native-fbsdkcore.a */,
+				F4A7B50E1FC2203D0068B806 /* libreact-native-fbsdklogin.a */,
+				F4A7B50F1FC2203D0068B806 /* libreact-native-fbsdkshare.a */,
+				F4A7B5061FC21EB00068B806 /* libreact-native-fbsdk.a */,
 				00CEFF0A9FFCA838721FFB09 /* libPods-wedoza.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F4A7B52E1FC221CD0068B806 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F4A7B5351FC221CD0068B806 /* libRCTFBSDK.a */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		F4AC0AB51FA94D95000755D3 /* Products */ = {
@@ -610,7 +652,7 @@
 		83CBB9F71A601CBA00E9B192 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0610;
+				LastUpgradeCheck = 610;
 				ORGANIZATIONNAME = Facebook;
 				TargetAttributes = {
 					00E356ED1AD99517003FC87E = {
@@ -647,6 +689,10 @@
 				{
 					ProductGroup = 5E91572E1DD0AC6500FF2AA8 /* Products */;
 					ProjectRef = 5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */;
+				},
+				{
+					ProductGroup = F4A7B52E1FC221CD0068B806 /* Products */;
+					ProjectRef = 8F02D1F35AF24F05AD8B1213 /* RCTFBSDK.xcodeproj */;
 				},
 				{
 					ProductGroup = 00C302B61ABCB90400DB3ED1 /* Products */;
@@ -875,6 +921,13 @@
 			remoteRef = 832341B41AAA6A8300B99B32 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		F4A7B5351FC221CD0068B806 /* libRCTFBSDK.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRCTFBSDK.a;
+			remoteRef = F4A7B5341FC221CD0068B806 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		F4AC0AB91FA94D95000755D3 /* libReactNativeNavigation.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
@@ -958,6 +1011,7 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-wedoza/Pods-wedoza-resources.sh",
+				"${PODS_ROOT}/AccountKit/AccountKitStrings.bundle",
 				"${PODS_ROOT}/FBSDKCoreKit/FacebookSDKStrings.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
@@ -1071,9 +1125,17 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../node_modules/react-native-fbsdk/ios/RCTFBSDK/**",
+				);
 				INFOPLIST_FILE = wedozaTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lc++",
@@ -1088,9 +1150,17 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../node_modules/react-native-fbsdk/ios/RCTFBSDK/**",
+				);
 				INFOPLIST_FILE = wedozaTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lc++",
@@ -1112,9 +1182,21 @@
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-navigation/ios/**",
 					"$(SRCROOT)/../node_modules/react-native/React/**",
+					"$(SRCROOT)/../node_modules/react-native-fbsdk/ios/RCTFBSDK/**",
 				);
 				INFOPLIST_FILE = wedoza/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/react-native-fbsdk",
+					"$(PROJECT_DIR)/build/Build/Products/Debug-iphonesimulator",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/FBSDKCoreKit",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/FBSDKLoginKit",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/FBSDKShareKit",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/react-native-fbsdkcore",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/react-native-fbsdklogin",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/react-native-fbsdkshare",
+				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -1136,9 +1218,21 @@
 					"$(inherited)",
 					"$(SRCROOT)/../node_moules/react-native-navigation/ios/**",
 					"$(SRCROOT)/../node_moules/react-native/React/**",
+					"$(SRCROOT)/../node_modules/react-native-fbsdk/ios/RCTFBSDK/**",
 				);
 				INFOPLIST_FILE = wedoza/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/react-native-fbsdk",
+					"$(PROJECT_DIR)/build/Build/Products/Debug-iphonesimulator",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/FBSDKCoreKit",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/FBSDKLoginKit",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/FBSDKShareKit",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/react-native-fbsdkcore",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/react-native-fbsdklogin",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/react-native-fbsdkshare",
+				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -1161,8 +1255,16 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_TESTABILITY = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../node_modules/react-native-fbsdk/ios/RCTFBSDK/**",
+				);
 				INFOPLIST_FILE = "wedoza-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lc++",
@@ -1187,8 +1289,16 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_NO_COMMON_BLOCKS = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../node_modules/react-native-fbsdk/ios/RCTFBSDK/**",
+				);
 				INFOPLIST_FILE = "wedoza-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lc++",
@@ -1214,6 +1324,10 @@
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = "wedoza-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.wedoza-tvOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
@@ -1235,6 +1349,10 @@
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = "wedoza-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.wedoza-tvOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
