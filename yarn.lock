@@ -2998,6 +2998,18 @@ react-native-fbsdk@^0.6.3:
     pump "^1.0.2"
     xcode "^0.9.3"
 
+react-native-fbsdkcore@0.0.8:
+  version "0.0.8"
+  resolved "https://registry.yarnpkg.com/react-native-fbsdkcore/-/react-native-fbsdkcore-0.0.8.tgz#807858753680466a52a30f1d70cae81806a166b8"
+
+react-native-fbsdklogin@0.0.8:
+  version "0.0.8"
+  resolved "https://registry.yarnpkg.com/react-native-fbsdklogin/-/react-native-fbsdklogin-0.0.8.tgz#ec33ff03184e455c8bee888ba2fc54a2de57299e"
+
+react-native-fbsdkshare@^0.0.8:
+  version "0.0.8"
+  resolved "https://registry.yarnpkg.com/react-native-fbsdkshare/-/react-native-fbsdkshare-0.0.8.tgz#c6dcbb0fb893608a26e29f96c7c6ab37fc023c8d"
+
 react-native-navigation@1.1.228:
   version "1.1.228"
   resolved "https://registry.yarnpkg.com/react-native-navigation/-/react-native-navigation-1.1.228.tgz#3fc00ecea3f29d40556fdce316858815bb73b509"
@@ -4102,3 +4114,7 @@ yauzl@2.4.1:
   resolved "https://registry.yarnpkg.com/yauzl/-/yauzl-2.4.1.tgz#9528f442dab1b2284e58b4379bb194e22e0c4005"
   dependencies:
     fd-slicer "~1.0.1"
+
+yoga@^0.0.0:
+  version "0.0.0"
+  resolved "https://registry.yarnpkg.com/yoga/-/yoga-0.0.0.tgz#af2bc89740524f2e226f7e4496d96a9b235bd2bd"

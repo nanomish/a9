@@ -1,0 +1,20 @@
+# Uncomment the next line to define a global platform for your project
+platform :ios, '9.0'
+
+target 'wedoza' do
+  # Uncomment the next line if you're using Swift or would like to use dynamic frameworks
+  # use_frameworks!
+
+  ####  Pods for wedoza, following added manually
+  source 'https://github.com/CocoaPods/Specs.git'
+  pod "Yoga", :path => '../node_modules/react-native/ReactCommon/yoga'
+  pod 'React', :subspecs => ['Core', 'RCTImage', 'RCTNetwork', 'RCTText', 'RCTWebSocket'], :path => '../node_modules/react-native'
+  pod 'react-native-fbsdk', :path => '../node_modules/react-native-fbsdk/ios'
+  pod 'react-native-fbsdklogin', :path => '../node_modules/react-native-fbsdklogin'
+  pod 'react-native-fbsdkshare', :path => '../node_modules/react-native-fbsdkshare'
+  pod 'react-native-fbsdkcore', :path => '../node_modules/react-native-fbsdkcore'
+
+  #### End of manual added content
+
+end
+

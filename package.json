@@ -11,9 +11,13 @@
     "react-native": "0.42.0",
     "react-native-animatable": "^1.1.0",
     "react-native-fbsdk": "^0.6.3",
+    "react-native-fbsdkcore": "0.0.8",
+    "react-native-fbsdklogin": "0.0.8",
+    "react-native-fbsdkshare": "^0.0.8",
     "react-native-navigation": "1.1.228",
     "react-timer-mixin": "^0.13.3",
-    "underscore": "^1.8.3"
+    "underscore": "^1.8.3",
+    "yoga": "^0.0.0"
   },
   "devDependencies": {
     "react-devtools": "^2.5.1"

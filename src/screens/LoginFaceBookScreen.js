@@ -8,7 +8,7 @@ const {
 } = FBSDK;
 import {View} from 'react-native';
 
-export default class LoginFaceBookScreen extends React.Component {
+export default class LoginFacebookScreen extends React.Component {
     render() {
         return (
             <View>
