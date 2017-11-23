@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Component} from 'react';
 import LocalStorageAsync from '../data/LocalStorageAsync';
 import {StyleSheet, View, Text, ScrollView, Button, TouchableHighlight, Dimensions, TextInput} from 'react-native';
 import UserData from '../data/userData';
@@ -8,7 +8,7 @@ import _ from 'underscore';
 import LoginFaceBookScreen from "./LoginFaceBookScreen";
 //import { Button } from 'react-native-elements';
 
-class LoginScreen extends React.Component {
+class LoginScreen extends Component {
 
     constructor() {
         super();
@@ -196,17 +196,19 @@ class LoginScreen extends React.Component {
                 <View style={{flex: 8}}>
 
                     <Text style={styles.title}>WeDoZe</Text>
-                    <LoginFaceBookScreen/>
+                    <View style={styles.loginButtonView}>
+                        <LoginFaceBookScreen/>
+                    </View>
 
-                    <TextInput placeholder=" email" onChangeText={(email) => this.setState({email})}
-                               value={this.state.email} autoCapitalize="none" autoCorrect={false}
-                               style={{height: 40, marginTop: 20, borderColor: 'gray', borderWidth: 1, width: '90%'}}/>
-                    <TextInput placeholder=" password" secureTextEntry={true}
-                               onChangeText={(password) => this.setState({password})}
-                               style={{height: 40, marginTop: 15, borderColor: 'gray', borderWidth: 1, width: '90%'}}/>
-                    <Text style={styles.error}>{this.state.error}</Text>
+                    {/*<TextInput placeholder=" email" onChangeText={(email) => this.setState({email})}*/}
+                               {/*value={this.state.email} autoCapitalize="none" autoCorrect={false}*/}
+                               {/*style={{height: 40, marginTop: 20, borderColor: 'gray', borderWidth: 1, width: '90%'}}/>*/}
+                    {/*<TextInput placeholder=" password" secureTextEntry={true}*/}
+                               {/*onChangeText={(password) => this.setState({password})}*/}
+                               {/*style={{height: 40, marginTop: 15, borderColor: 'gray', borderWidth: 1, width: '90%'}}/>*/}
+                    {/*<Text style={styles.error}>{this.state.error}</Text>*/}
                 </View>
-                <View style={styles.buttonsContainer}>
+                {/*<View style={styles.buttonsContainer}>
                     <Button
                         title={'Login'}
                         style={styles.button}
@@ -217,7 +219,7 @@ class LoginScreen extends React.Component {
                         style={styles.button}
                         onPress={() => this.onSignUp()}
                     />
-                </View>
+                </View>*/}
             </View>
         )
     }
@@ -233,6 +235,9 @@ const styles = StyleSheet.create({
         color: 'green',
         borderRadius: 10
     },
+    loginButtonView: {
+        marginTop: 250,
+    },
     container: {
         backgroundColor: '#ffffff',
         borderRadius: 10,
@@ -247,7 +252,7 @@ const styles = StyleSheet.create({
     title: {
         fontSize: 17,
         fontWeight: '700',
-        marginLeft: 30
+        textAlign: 'center'
     },
     content: {
         marginTop: 8,
